@@ -7,12 +7,12 @@
   <% end %>
 </div>
 <div style="background-color: #e9eaed;">
-<h1>Recent Posts</h1>
+<h2>Syn3ck SNS</h2>
   <% @posts.reverse.each do |post| %>
   <div style="background-color: #ffffff; width: 400px; border: 2px solid #d3d6db; padding: 10px; word-break: break-all;">
     <h3 style="color: blue;"><%= post.name %></h3>
     <p><%= post.content %></p>
-    <p style="font-size: 90%; text-align: right;"><a href="/wall/write_comment/<%= post.id %>">comment</a> <a href="/wall/edit/<%= post.id %>">edit</a> <a href="/wall/delete/<%= post.id %>">delete</a></p>
+    <p style="font-size: 90%; text-align: right;"><a href="/wall/write_comment/<%= post.id %>">reply</a> <a href="/wall/edit/<%= post.id %>">edit</a> <a href="/wall/delete/<%= post.id %>">delete</a></p>
     <% post.comments.each do |comment| %>
     <div style="background-color: #fafbfb; width: 390px; border: 1px solid #d3d6db; padding: 0px 5px 0px 5px; word-break: break-all; text-align: left;">
       <p style="font-size: 90%; text-align: left"><span style="color: ##0000ff; font-weight: bold;"><%= comment.name %></span> <%= comment.content %></p>
@@ -20,9 +20,6 @@
     <% end %>
   </div><br>
   <% end %>
-  <a href="/wall/write">Write post again</a>
+  <a href="/wall/write">Post again</a>
 </div>
 
-<% User.all.each do |user| %>
-<p><%= user.username %></p>
-<% end %>

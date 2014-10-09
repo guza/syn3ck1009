@@ -11,7 +11,7 @@ class WallController < ApplicationController
 	p.name = params[:writer]
 	p.content = params[:content]
 	if p.save
-		redirect_to "wall/posts"
+		redirect_to "/wall/posts"
 	else
 		flash[:alert] = p.errors[:content][0]
 		redirect_to :back
@@ -28,7 +28,7 @@ class WallController < ApplicationController
 	p.name = params[:writer_edit]
 	p.content = params[:content_edit]
 	if p.save
-		redirect_to "wall/posts"
+		redirect_to "/wall/posts"
 	else
 		flash[:alert] = p.errors[:content][0]
 		redirect_to :back
@@ -46,7 +46,7 @@ class WallController < ApplicationController
   def delete_complete
 	p = Post.find(params[:id])
 	p.destroy
-	redirect_to "wall/posts" 
+	redirect_to "/wall/posts" 
   end
 
   def write_comment
@@ -60,7 +60,7 @@ class WallController < ApplicationController
 	c.content = params[:content]
 	c.save
 
-	redirect_to "wall/posts"
+	redirect_to "/wall/posts"
   end
 
 end
